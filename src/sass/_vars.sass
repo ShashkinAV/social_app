@@ -1,0 +1,29 @@
+$accent: #50b5ff
+$text: #777d74
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-size: 14px
+	min-width: 320px
+	position: relative
+	line-height: 1.8
+	overflow-x: hidden
+	color: $text
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
