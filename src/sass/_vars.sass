@@ -1,5 +1,6 @@
 $accent: #50b5ff
-$text: #777d74
+$text: #444444
+$bg: #f1f1f1
 
 ::placeholder
 	color: #666
@@ -22,8 +23,15 @@ body
 	line-height: 1.8
 	overflow-x: hidden
 	color: $text
+	background-color: $bg
+	font-family: 'Roboto', sans-serif
 
 .img-responsive
 	display: block
 	max-width: 100%
 	height: auto
+a
+	text-decoration: none
+	&:hover
+		text-decoration: none
+		color: $accent

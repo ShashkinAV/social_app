@@ -4,6 +4,73 @@
 
 /* - Wrapper - */
 
+/* - Header - */
+
+.header
+	background-color: #fff
+	padding: 5px 0
+.fixed
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	z-index: 9
+	box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2)
 
 /* - Logotype - */
+.brand
+	&__img
+		max-width: 100%
+		text-align: center
+		width: 41px
+		display: block
+/* - Header menu - */
+.menu
+	&__list
+		display: flex
+		list-style-type: none
+		margin: 0
+		padding: 0
+	&__item
+		margin-right: 21px
+		&:last-child
+			margin-right: 0
+	&__link
+		color: black
+		font-style: 16px
+		padding: 21px 0
+.active
+	color: $accent	
 
+/* - Search box - */
+.search
+	in-width: 250px
+    position: relative
+    padding-bottom: 5px
+    border-bottom: 1px solid #ddd
+	display: flex
+	margin-right: 30px
+	&__input
+		border: none
+		width: 100%
+		padding-right: 30px
+		background-color: transparent
+		border-bottom: 1px solid #ddd
+	&__btn
+		cursor: pointer
+		font-size: 20px
+		color: #333333
+		border: none
+		outline: none
+		box-shadow: none
+		transition: 0.4s
+		background-color: transparent
+
+/* - Login button - */
+.login
+	width: 35px
+	height: 35px
+	overflow: hidden
+	&__avatar
+		border-radius: 50%
+		max-width: 100%
