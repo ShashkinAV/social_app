@@ -11,7 +11,7 @@ const Header = (props) => {
             <nav className="menu">
               <ul className="menu__list">
                 <li className="menu__item">
-                  <a className="menu__link" href="/home">
+                  <a className="menu__link active" href="/home">
                     Home
                   </a>
                 </li>
@@ -36,15 +36,19 @@ const Header = (props) => {
             </div>
           </div>
           <div className="col-md-5 d-flex justify-content-end align-items-center">
-              <form className="search">
-                  <input type="search" className="search__input" placeholder="Search"/>
-				  <button className="search__btn">
-					  <i className="icon-search"></i>
-				  </button>
-              </form>
-              <div className="login">
-                  <img src={Avatar} alt="Avatar" className="login__avatar"/>
-              </div>
+            <form className="search">
+              <input
+                type="search"
+                className="search__input"
+                placeholder="Search"
+              />
+              <button className="search__btn">
+                <i className="icon-search"></i>
+              </button>
+            </form>
+            <div className="login">
+              <img src={Avatar} alt="Avatar" className="login__avatar" />
+            </div>
           </div>
         </div>
       </div>
