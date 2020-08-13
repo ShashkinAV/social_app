@@ -56,7 +56,6 @@
 		width: 100%
 		padding-right: 30px
 		background-color: transparent
-		border-bottom: 1px solid #ddd
 	&__btn
 		cursor: pointer
 		font-size: 20px
@@ -127,6 +126,7 @@
 	display: flex
 	justify-content: space-around
 	align-items: center
+	background-color: #fff
 	&__link
 		width: 45px
 		height: 45px
@@ -154,6 +154,7 @@
 		background-color: $bg
 		box-shadow: inset 0px 1px 10px 0px rgba(85, 85, 85, 0.2)
 		transition: all 0.4s ease
+		resize: none
 .btn-share
 	top: 22px
 	right: 2px
@@ -169,4 +170,54 @@
 	text-transform: uppercase
 	transform: translateY(-50%)
 	border: none
+
+/* - Post - */
+
+.post
+	background-color: #fff
+	border: none
+	padding: 30px
+	margin-bottom: 30px
+	box-shadow: 0px 1px 15px 0px rgba(51, 51, 51, 0.2)
+	position: relative
+	display: flex
+	flex-direction: column
+	min-width: 0
+	background-clip: border-box
+	&__thumb
+		display: inline-block
+		position: relative
+	&__img
+		width: 45px
+		height: 45px
+		display: block
+		border-radius: 50%
+		overflow: hidden
+		margin: 0
+		img
+			max-width: 100%
+	&__author
+		margin-left: 20px
+		.author
+			font-size: 16px
+			font-weight: 800
+			line-height: 1
+			text-transform: capitalize
+			color: #333333
+			margin: 0
+	&__time
+		display: block
+		font-size: 12px
+		line-height: 1
+		padding-top: 10px
+	&__content
+		padding-top: 18px
+	&__desc
+		padding-bottom: 16px
+		margin-bottom: 8px
+		margin-top: 0
+	&__gallary
+		border-radius: 5px
+		overflow: hidden
+		text-align: center
 
