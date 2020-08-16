@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "./components/Header/Header";
 import LeftBar from "./components/LeftBar/LeftBar";
-import Post from "./components/Post/Post";
+import HomePage from "./Pages/HomePage";
+
 
 
 function App(props) {
@@ -12,8 +13,17 @@ function App(props) {
         <div className="main-wrapper">
           <div className="container">
             <div className="row">
-              <LeftBar />
-              <Post />
+			<div className="col-lg-3 order-2 order-lg-1">
+				<LeftBar />
+			</div>
+              
+			  <div className="col-lg-6 order-1 order-lg-2">
+			  	<HomePage />
+			  </div>
+			  <div className="col-lg-3 order-3">
+			  	RightBar
+			  </div>
+              
             </div>
           </div>
         </div>
