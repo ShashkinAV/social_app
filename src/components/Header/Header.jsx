@@ -4,7 +4,7 @@ import Avatar from "../../img/profile.jpg";
 
 const Header = (props) => {
   return (
-    <header className="header fixed d-lg-block d-none">
+    <header className="header fixed d-lg-block">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-5 d-flex">

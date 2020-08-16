@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header/Header";
 import LeftBar from "./components/LeftBar/LeftBar";
+import ProfilePage from "./Pages/ProfilePage";
 import HomePage from "./Pages/HomePage";
 
 
