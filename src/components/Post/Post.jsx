@@ -21,7 +21,7 @@ const Post = (props) => {
 			</div>
 			<div className="post__content">
 				<p className="post__desc">
-				Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+					{props.msg}
 				</p>
 				<div className="post__gallary">
 					<img src={PostGallery} alt="gallery"/>
