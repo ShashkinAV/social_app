@@ -21,12 +21,10 @@ function App(props) {
               <div className="col-lg-3 order-2 order-lg-1">
                 <LeftBar />
               </div>
-              <div className="col-lg-6 order-1 order-lg-2">
                 <Route path='/home' component={HomePage} />
                 <Route path='/profile' component={ProfilePage} />
                 <Route path='/messages' component={Messages} />
-              </div>
-              <div className="col-lg-3 order-3"></div>
+				<Route exact path='/' component={HomePage} />
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../img/logo.png";
 import Avatar from "../../img/profile.jpg";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
   return (
@@ -11,28 +12,28 @@ const Header = (props) => {
             <nav className="menu">
               <ul className="menu__list">
                 <li className="menu__item">
-                  <a className="menu__link active" href="/home">
+                  <NavLink className="menu__link" to="/home">
                     Home
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="menu__item">
-                  <a className="menu__link" href="/Profile">
+                  <NavLink className="menu__link" to="/profile">
                     Profile
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="menu__item">
-                  <a className="menu__link" href="/Messages">
+                  <NavLink className="menu__link" to="/messages">
                     Messages
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </nav>
           </div>
           <div className="col-md-2 d-flex justify-content-center">
             <div className="brand">
-              <a href="/home" className="brand__link">
+              <NavLink to="/home" className="brand__link">
                 <img className="brand__img" src={Logo} alt="Logo" />
-              </a>
+              </NavLink>
             </div>
           </div>
           <div className="col-md-5 d-flex justify-content-end align-items-center">
@@ -47,7 +48,9 @@ const Header = (props) => {
               </button>
             </form>
             <div className="login">
-              <img src={Avatar} alt="Avatar" className="login__avatar" />
+              <NavLink to="/profile">
+                <img src={Avatar} alt="Avatar" className="login__avatar" />
+              </NavLink>
             </div>
           </div>
         </div>
