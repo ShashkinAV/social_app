@@ -1,8 +1,8 @@
 import React from "react";
-import ProfileBunner from "../img/profile-banner.jpg";
-import ProfilePic from "../img/profile-1.jpg";
-import Post from "../components/Post/Post";
-import SharePost from "../components/SharePost/SharePost";
+import Post from "../../components/Post/Post";
+import SharePost from "../../components/SharePost/SharePost";
+import ProfilePic from "../../img/profile-1.jpg";
+import ProfileBunner from "../../img/profile-banner.jpg";
 
 const ProfilePage = (props) => {
   return (

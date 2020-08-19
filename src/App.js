@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./components/Header/Header";
-import Messages from "./Pages/Messages";
-import HomePage from "./Pages/HomePage";
-import ProfilePage from "./Pages/ProfilePage";
+import Messages from "./Pages/Messages/Messages";
+import HomePage from "./Pages/HomePage/HomePage";
+import ProfilePage from "./Pages/Profile/ProfilePage";
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App(props) {

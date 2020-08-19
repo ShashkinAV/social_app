@@ -1,7 +1,7 @@
 import React from "react";
-import DialogItem from "../components/DialogItem/DialogItem";
-import UserBar from "../components/UserBar/UserBar";
-import LeftBar from "../components/LeftBar/LeftBar";
+import DialogItem from "../../components/DialogItem/DialogItem";
+import UserBar from "../../components/UserBar/UserBar";
+import LeftBar from "../../components/LeftBar/LeftBar";
 
 const Messages = (props) => {
   return (
