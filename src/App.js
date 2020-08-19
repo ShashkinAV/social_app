@@ -1,14 +1,9 @@
 import React from "react";
 import Header from "./components/Header/Header";
-import LeftBar from "./components/LeftBar/LeftBar";
 import Messages from "./Pages/Messages";
 import HomePage from "./Pages/HomePage";
 import ProfilePage from "./Pages/ProfilePage";
 import { BrowserRouter, Route } from "react-router-dom";
-
-
-
-
 
 function App(props) {
   return (
@@ -16,17 +11,10 @@ function App(props) {
       <Header />
       <main>
         <div className="main-wrapper">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-3 order-2 order-lg-1">
-                <LeftBar />
-              </div>
-                <Route path='/home' component={HomePage} />
-                <Route path='/profile' component={ProfilePage} />
-                <Route path='/messages' component={Messages} />
-				<Route exact path='/' component={HomePage} />
-            </div>
-          </div>
+          <Route path='/home' component={HomePage} />
+          <Route path='/profile' component={ProfilePage} />
+          <Route path='/messages' component={Messages} />
+          <Route exact path='/' component={HomePage} />
         </div>
       </main>
     </BrowserRouter>

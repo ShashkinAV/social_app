@@ -11,7 +11,7 @@ const UserBar = (props) => {
 	]
 	let Users = UsersDb.map(
 		(el) => {
-			return <UserItem id={el.id} name={el.name} />
+			return <UserItem key={el.id} id={el.id} name={el.name} />
 		}
 	)
   return (
