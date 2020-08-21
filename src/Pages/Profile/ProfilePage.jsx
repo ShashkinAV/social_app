@@ -5,6 +5,7 @@ import ProfilePic from "../../img/profile-1.jpg";
 import ProfileBunner from "../../img/profile-banner.jpg";
 
 const ProfilePage = (props) => {
+  let posts = props.posts.map(el => <Post msg={el.msg} key={el.id} id={el.id}/>)
   return (
     <>
       <div className="profile-bunner-large">
@@ -66,9 +67,7 @@ const ProfilePage = (props) => {
           <div className="col-lg-3 order-2 order-lg-1"></div>
           <div className="col-lg-6 order-1 order-lg-2">
             <SharePost />
-            <Post msg="Lorem ipsun trulala. Hello my firt duddy!" />
-            <Post msg="Hello World!" />
-            <Post msg="Lucky day! Good day!!" />
+            {posts}
           </div>
           <div className="col-lg-3 order-3">RightBar</div>
         </div>

@@ -3,27 +3,8 @@ import DialogItem from "../../components/DialogItem/DialogItem";
 import UserBar from "../../components/UserBar/UserBar";
 import LeftBar from "../../components/LeftBar/LeftBar";
 
-let MessagesDb = [
-	{
-		id: 1, 
-		from: "from-me",
-		msg: "Lorem ipsun trulala. Hello my firt duddy!"
-	},
-	{
-		id: 2,
-		from: "from-them",
-		msg: "LOLOLOLLOLOLOLO!!!!!"
-	},
-	{
-		id: 3,
-		from: "from-me",
-		msg: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis commodi ex, tempora libero laudantium facilis enim architecto numquam voluptate quidem iure facere vero, hic, dignissimos inventore minima possimus mollitia assumenda."
-	}
-]
-
-
 const Messages = (props) => {
-	let dialogItems = MessagesDb.map(item=> <DialogItem from={"dialog__text " + item.from} msg={item.msg} key={item.id}/>)
+	let dialogItems = props.msgDb.map(item=> <DialogItem from={"dialog__text " + item.from} msg={item.msg} key={item.id} date={item.date}/>)
   return (
     <div className="container pt-80">
       <div className="row">
