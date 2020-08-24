@@ -3,13 +3,7 @@ import UserItem from "../UserItem/UserItem";
 
 const UserBar = (props) => {
 
-	let UsersDb = [
-		{id: 1, name: "Niko"},
-		{id: 2, name: "Valeria"},
-		{id: 3, name: "Viktor"},
-		{id: 4, name: "Olivia"},
-	]
-	let Users = UsersDb.map(
+	let users = props.users.map(
 		(el) => {
 			return <UserItem key={el.id} id={el.id} name={el.name} />
 		}
@@ -17,10 +11,10 @@ const UserBar = (props) => {
   return (
       <aside className="rightBar">
         <div className="rightBar__title">
-          <h3>Users</h3>
+          <h3>Friends</h3>
         </div>
         <ul className="users">
-         {Users}
+         {users}
         </ul>
       </aside>
   );

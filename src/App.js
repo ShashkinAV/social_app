@@ -11,9 +11,9 @@ function App(props) {
       <Header />
       <main>
         <div className="main-wrapper">
-          <Route path='/home' render={ ()=> <HomePage posts={props.posts}/> } />
-          <Route path='/profile' render={()=> <ProfilePage posts={props.posts}/>} />
-          <Route path='/messages' render={()=> <Messages msgDb={props.msgDb}/> } />
+          <Route path='/home' render={ ()=> <HomePage posts={props.state.posts}/> } />
+          <Route path='/profile' render={()=> <ProfilePage posts={props.state.posts} />} />
+          <Route path='/messages' render={()=> <Messages users={props.state.usersDb} msg={props.state.messagePage}/> } />
           <Route exact path='/' component={HomePage} />
         </div>
       </main>
