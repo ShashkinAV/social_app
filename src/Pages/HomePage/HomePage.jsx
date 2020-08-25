@@ -16,7 +16,7 @@ const HomePage = (props) => {
         </div>
         <div className="col-lg-6 order-1 order-lg-2">
           <SharePost />
-          	{posts} 
+          	{posts}
         </div>
       </div>
     </div>
