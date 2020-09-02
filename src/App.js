@@ -3,11 +3,11 @@ import Header from "./components/Header/Header";
 import Messages from "./Pages/Messages/Messages";
 import HomePage from "./Pages/HomePage/HomePage";
 import ProfilePage from "./Pages/Profile/ProfilePage";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App(props) {
   return (
-    <BrowserRouter>
+    <>
       <Header />
       <main>
         <div className="main-wrapper">
@@ -16,7 +16,7 @@ function App(props) {
           <Route path='/messages' render={()=> <Messages users={props.state.users} messagePage={props.state.messagePage}/> } />
         </div>
       </main>
-    </BrowserRouter>
+    </>
   );
 }
 
