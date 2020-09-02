@@ -1,6 +1,6 @@
 let state = {
 	messagePage: {
-		msgDb: [
+		msg: [
 			{
 				id: 1,
 				from: "from-me",
@@ -45,7 +45,7 @@ let state = {
 			{ id: 3, msg: 'Lucky day! Good day!!' },
 			{ id: 4, msg: 'Lorem ipsun trulala. Hello my firt duddy!' }
 		],
-		usersDb: [
+		users: [
 			{id: 1, name: "Niko"},
 			{id: 2, name: "Valeria"},
 			{id: 3, name: "Viktor"},

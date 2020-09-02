@@ -4,7 +4,12 @@ import UserBar from "../../components/UserBar/UserBar";
 import LeftBar from "../../components/LeftBar/LeftBar";
 
 const Messages = (props) => {
-	let dialogItems = props.msg.msgDb.map(item => <DialogItem from={"dialog__text " + item.from} msg={item.msg} key={item.id} date={item.date}/>)
+  console.log(props.messagePage);
+  let items = props.messagePage.msg.map(
+    (el) => {
+      return <DialogItem from={"dialog__text " + el.from} msg={el.msg} key={el.id} date={el.date} />;
+    }
+  )
   return (
     <div className="container pt-80">
       <div className="row">
@@ -13,11 +18,11 @@ const Messages = (props) => {
         </div>
         <div className="col-lg-6 order-1 order-lg-2">
           <div className="dialog">
-            {dialogItems}
+          {items}
           </div>
         </div>
         <div className="col-lg-3 order-3">
-          <UserBar users={props.users}/>
+         <UserBar users={props.users}/>
         </div>
       </div>
     </div>

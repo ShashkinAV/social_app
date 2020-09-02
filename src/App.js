@@ -13,8 +13,7 @@ function App(props) {
         <div className="main-wrapper">
           <Route path='/home' render={ ()=> <HomePage posts={props.state.posts}/> } />
           <Route path='/profile' render={()=> <ProfilePage posts={props.state.posts} />} />
-          <Route path='/messages' render={()=> <Messages users={props.state.usersDb} msg={props.state.messagePage}/> } />
-          <Route exact path='/' component={HomePage} />
+          <Route path='/messages' render={()=> <Messages users={props.state.users} messagePage={props.state.messagePage}/> } />
         </div>
       </main>
     </BrowserRouter>
