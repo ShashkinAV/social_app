@@ -5,7 +5,9 @@ import ProfilePic from "../../img/profile-1.jpg";
 import ProfileBunner from "../../img/profile-banner.jpg";
 
 const ProfilePage = (props) => {
-  let posts = props.posts.map(el => <Post msg={el.msg} key={el.id} id={el.id}/>)
+  let posts = props.posts.map((el) => (
+    <Post msg={el.msg} key={el.id} id={el.id} />
+  ));
   return (
     <>
       <div className="profile-bunner-large">

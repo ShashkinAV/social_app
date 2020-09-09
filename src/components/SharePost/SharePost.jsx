@@ -2,6 +2,13 @@ import React from "react";
 import ProfileImg from "../../img/profile-midle-1.jpg";
 
 const SharePost = (props) => {
+
+	let text = React.createRef();
+	let addPost = ()=> {
+		let currentText = text.current.value;
+		alert(currentText);
+	}
+
   return (
     <div className="share-post">
       <div className="share-post__profile">
@@ -12,10 +19,13 @@ const SharePost = (props) => {
       <div className="share-content">
         <form className="share-content__box">
           <textarea
+		  	ref={text}
             className="share-content__field"
             placeholder="Sat Something"
           ></textarea>
-          <button className="btn-share">Share</button>
+          <button onClick={addPost} className="btn-share">
+            Share
+          </button>
         </form>
       </div>
     </div>
