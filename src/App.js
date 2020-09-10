@@ -12,7 +12,7 @@ function App(props) {
 			<Header />
 			<main>
 				<div className="main-wrapper">
-					<Route path='/home' render={() => <HomePage posts={props.state.posts} />} />
+					<Route path='/home' render={() => <HomePage posts={props.state.posts} addPost={props.addPost}/>} />
 					<Route path='/profile' render={() => <ProfilePage posts={props.state.posts} />} />
 					<Route path='/messages' render={() => <Messages users={props.state.users} messagePage={props.state.messagePage} />} />
 				</div>

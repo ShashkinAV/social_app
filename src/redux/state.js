@@ -1,3 +1,5 @@
+import { rerender } from "../render";
+
 let state = {
 	messagePage: {
 		msg: [
@@ -53,5 +55,12 @@ let state = {
 			{id: 5, name: "Antonio"},
 		]
 }
-
+export let addPost = (postMsg) => {
+	let newPost = {
+		id: 5,
+		msg: postMsg
+	}
+	state.posts.push(newPost);
+	rerender(state);
+}
 export default state;
