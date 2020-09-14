@@ -14,7 +14,7 @@ const HomePage = (props) => {
           <LeftBar />
         </div>
         <div className="col-lg-6 order-1 order-lg-2">
-          <SharePost addPost={props.addPost}/>
+          <SharePost addPost={props.addPost} newPostText={props.newPostText} updatePost={props.updatePost}/>
           {posts}
         </div>
       </div>

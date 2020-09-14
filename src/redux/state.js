@@ -53,7 +53,8 @@ let state = {
 			{id: 3, name: "Viktor"},
 			{id: 4, name: "Olivia"},
 			{id: 5, name: "Antonio"},
-		]
+		],
+		newPostText: 'Default text'
 }
 export let addPost = (postMsg) => {
 	let newPost = {
@@ -61,6 +62,10 @@ export let addPost = (postMsg) => {
 		msg: postMsg
 	}
 	state.posts.push(newPost);
+	rerender(state);
+}
+export let updatePost = (currentText)=> {
+	state.newPostText = currentText;
 	rerender(state);
 }
 export default state;
