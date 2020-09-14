@@ -6,13 +6,13 @@ const SharePost = (props) => {
 
   let newPost = () => {
     let currentText = text.current.value;
-    props.addPost(currentText);
+	props.addPost(currentText);
+	props.updatePost('')
   };
 
   let onPostChange = () => {
     let currentText = text.current.value;
     props.updatePost(currentText);
-    props.updatePost("");
   };
 
   return (

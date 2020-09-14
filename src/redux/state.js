@@ -1,4 +1,6 @@
-import { rerender } from "../render";
+let rerender = ()=> {
+	console.log('State changed');
+}
 
 let state = {
 	messagePage: {
@@ -56,16 +58,23 @@ let state = {
 		],
 		newPostText: 'Default text'
 }
-export let addPost = (postMsg) => {
+export const addPost = (postMsg) => {
 	let newPost = {
 		id: 5,
 		msg: postMsg
 	}
 	state.posts.push(newPost);
+	debugger;
+	state.newPostText = '';
 	rerender(state);
 }
-export let updatePost = (currentText)=> {
+export const updatePost = (currentText)=> {
 	state.newPostText = currentText;
 	rerender(state);
+
+}
+
+export const subscribe = (observer) => {
+	rerender = observer;
 }
 export default state;
