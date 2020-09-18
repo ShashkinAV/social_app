@@ -15,11 +15,12 @@ function App(props) {
 					<Route 
 						path='/home' 
 						render={() => <HomePage 
-							posts={props.state.posts} 
+							posts={props.state.posts}
 							addPost={props.addPost}
-							newPostText={props.newPostText}
-							updatePost={props.updatePost}
-							/>} />
+							newPostText={props.state.newPostText}
+							updateNewPostText={props.updateNewPostText}							
+							/>} 
+					/>
 					<Route path='/profile' render={() => <ProfilePage posts={props.state.posts} />} />
 					<Route path='/messages' render={() => <Messages users={props.state.users} messagePage={props.state.messagePage} />} />
 				</div>

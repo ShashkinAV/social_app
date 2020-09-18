@@ -2,18 +2,20 @@ import React from "react";
 import ProfileImg from "../../img/profile-midle-1.jpg";
 
 const SharePost = (props) => {
-  let text = React.createRef();
 
-  let newPost = () => {
-    let currentText = text.current.value;
-	props.addPost(currentText);
-	props.updatePost('')
-  };
+//Ссылка на элемент DOM textarea
+let newPostElement = React.createRef();
 
-  let onPostChange = () => {
-    let currentText = text.current.value;
-    props.updatePost(currentText);
-  };
+//Отправка поста в state
+let addPost=()=> {
+	props.addPost();
+};
+
+//Отслеживание изменения в textarea
+let onPostChange = ()=> {
+	let text = newPostElement.current.value;
+	props.updateNewPostText(text);
+}
 
   return (
     <div className="share-post">
@@ -25,12 +27,13 @@ const SharePost = (props) => {
       <div className="share-content">
         <form className="share-content__box">
           <textarea
-            onChange={onPostChange}
-            value={props.newPostText}
-            ref={text}
-            className="share-content__field"
+			value={props.newPostText}
+			className="share-content__field"
+			ref={newPostElement}
+			onChange={onPostChange}
+			placeholder="Write text please"
           />
-          <button type="button" onClick={newPost} className="btn-share">
+          <button type="button" onClick={addPost} className="btn-share">
             Share
           </button>
         </form>

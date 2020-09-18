@@ -23,9 +23,9 @@ const Post = (props) => {
 				<p className="post__desc">
 					{props.msg}
 				</p>
-				<div className="post__gallary">
+				{/* <div className="post__gallary">
 					<img src={PostGallery} alt="gallery"/>
-				</div>
+				</div> */}
 				<div className="post__meta">
 					<button className="post__like">Like this post</button>
 				</div>
