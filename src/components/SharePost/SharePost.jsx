@@ -8,13 +8,20 @@ let newPostElement = React.createRef();
 
 //Отправка поста в state
 let addPost=()=> {
-	props.addPost();
+	let action = {
+		type: 'ADD-POST'
+	}
+	props.dispatch(action);
 };
 
 //Отслеживание изменения в textarea
 let onPostChange = ()=> {
 	let text = newPostElement.current.value;
-	props.updateNewPostText(text);
+	let action = {
+		type: 'UPDATE-NEW-POST-TEXT',
+		newText: text
+	}
+	props.dispatch(action);
 }
 
   return (

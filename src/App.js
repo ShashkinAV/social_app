@@ -16,9 +16,8 @@ function App(props) {
 						path='/home' 
 						render={() => <HomePage 
 							posts={props.state.posts}
-							addPost={props.addPost}
-							newPostText={props.state.newPostText}
-							updateNewPostText={props.updateNewPostText}							
+							dispatch={props.dispatch}
+							newPostText={props.state.newPostText}						
 							/>} 
 					/>
 					<Route path='/profile' render={() => <ProfilePage posts={props.state.posts} />} />
