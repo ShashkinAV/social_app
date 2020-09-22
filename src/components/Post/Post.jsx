@@ -1,6 +1,6 @@
 import React from "react";
 import PostProfileImg from "../../img/profile.jpg";
-import PostGallery from "../../img/post-1.jpg";
+//import PostGallery from "../../img/post-1.jpg";
 
 const Post = (props) => {
   return (

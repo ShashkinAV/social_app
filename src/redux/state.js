@@ -1,3 +1,6 @@
+import homeReducer from './homeReducer';
+import messageReducer from './messageReducer';
+
 let store = {
 	//Начальный state
 	_state: {
@@ -39,7 +42,8 @@ let store = {
 					msg: "LOLOLOLLOLOLOLO!!!!!",
 					date: "today at 15.00 am"
 				}
-			]
+			],
+			newMsgText: ''
 		},
 		posts: [
 			{ id: 1, msg: 'Lorem ipsun trulala. Hello my firt duddy!' },
@@ -66,37 +70,15 @@ let store = {
 	_rerender() {
 		console.log('State Chenge');
 	},
-	//Добавление объекта пост в массив Posts
-	// addPost() {
-	// 	let newPost = {
-	// 		id: 5,
-	// 		msg: this._state.newPostText
-	// 	};
-	// 	this._state.posts.push(newPost);
-	// 	this._state.newPostText = '';
-	// 	this._rerender(this._state);
 
-	// },
-	//Обновление state при вводе текста в текстовое поле
-	// updateNewPostText(newText) {
-	// 	this._state.newPostText = newText;
-	// 	this._rerender(this._state);
-	// },
+	//ACTIONS
+
 	dispatch(action) {
-		if (action.type === 'ADD-POST') {
-			let newPost = {
-				id: 5,
-				msg: this._state.newPostText
-			};
-			this._state.posts.push(newPost);
-			this._state.newPostText = '';
-			this._rerender(this._state);
-		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-			this._state.newPostText = action.newText;
-			this._rerender(this._state);
-		}
+		this._state = homeReducer(this._state, action);
+		this._state.messagePage = messageReducer(this._state.messagePage, action);
+		this._rerender(this._state);
 	}
-	
+
 }
 
 export default store;
