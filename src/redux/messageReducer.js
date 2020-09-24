@@ -1,6 +1,18 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
+export const addMessageActionCreater = () => {
+	return { 
+		type: ADD_MESSAGE 
+	}
+}
+export const updateMessageTextActionCreater = (text)=> {
+	return {
+		type: UPDATE_NEW_MESSAGE_TEXT,
+		newMsgText: text
+	}
+}
+
 const messageReducer = (state, action) => {
     switch (action.type) {
         case ADD_MESSAGE: 

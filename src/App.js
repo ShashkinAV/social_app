@@ -15,14 +15,12 @@ function App(props) {
 					<Route
 						path='/home'
 						render={() => <HomePage
-							posts={props.state.posts}
+							homePage={props.state.homePage}
 							dispatch={props.dispatch}
-							newPostText={props.state.newPostText}
 						/>}
 					/>
-					<Route path='/profile' render={() => <ProfilePage posts={props.state.posts} />} />
+					<Route path='/profile' render={() => <ProfilePage posts={props.state.homePage.posts} />} />
 					<Route path='/messages' render={() => <Messages
-						users={props.state.users}
 						messagePage={props.state.messagePage}
 						dispatch={props.dispatch}
 					/>} />

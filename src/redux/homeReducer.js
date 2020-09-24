@@ -1,6 +1,19 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
+export const addPostActionCreater = ()=> {
+	return {
+	  type: ADD_POST
+	}
+  }
+
+export const updatePostActionCreater = (text) => {
+	return { 
+	type: UPDATE_NEW_POST_TEXT, 
+	newText: text
+}
+  }
+
 const homeReducer = (state, action) => {
     switch (action.type) {
         case ADD_POST: 

@@ -4,7 +4,7 @@ import SharePost from "../../components/SharePost/SharePost";
 import LeftBar from "../../components/LeftBar/LeftBar";
 
 const HomePage = (props) => {
-  let posts = props.posts.map((el) => (
+  let posts = props.homePage.posts.map((el) => (
     <Post msg={el.msg} key={el.id} id={el.id} />
   ));
   return (
@@ -16,7 +16,7 @@ const HomePage = (props) => {
         <div className="col-lg-6 order-1 order-lg-2">
           <SharePost
             dispatch={props.dispatch}
-            newPostText={props.newPostText}
+            newPostText={props.homePage.newPostText}
           />
           {posts}
         </div>

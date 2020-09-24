@@ -31,7 +31,7 @@ const Messages = (props) => {
           </div>
         </div>
         <div className="col-lg-3 order-3">
-          <UserBar users={props.users} />
+          <UserBar users={props.messagePage.users} />
         </div>
       </div>
     </div>

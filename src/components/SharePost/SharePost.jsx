@@ -1,25 +1,22 @@
 import React from "react";
 import ProfileImg from "../../img/profile-midle-1.jpg";
+import { addPostActionCreater, updatePostActionCreater } from "../../redux/homeReducer";
+
 
 const SharePost = (props) => {
+
   //Ссылка на элемент DOM textarea
   let newPostElement = React.createRef();
 
   //Отправка поста в state
   let addPost = () => {
-    let action = {
-      type: "ADD-POST",
-    };
-    props.dispatch(action);
+    props.dispatch(addPostActionCreater());
   };
 
   //Отслеживание изменения в textarea
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    let action = {
-      type: "UPDATE-NEW-POST-TEXT",
-      newText: text,
-    };
+    let action = updatePostActionCreater(text);
     props.dispatch(action);
   };
 

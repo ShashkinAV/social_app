@@ -1,23 +1,21 @@
 import React from "react";
+import { addMessageActionCreater, updateMessageTextActionCreater } from "../../redux/messageReducer";
+
 
 const AddMessage = (props) => {
+
   //Ссылка на textarea
   let newMsgElement = React.createRef();
+
   //Отправка в state
   let addMsg = () => {
-    let action = {
-      type: "ADD-MESSAGE",
-    };
-    props.dispatch(action);
+    props.dispatch(addMessageActionCreater());
   };
+
   //Отслеживание изменения в textarea
   let onPostChange = () => {
     let text = newMsgElement.current.value;
-    let action = {
-      type: "UPDATE-NEW-MESSAGE-TEXT",
-      newMsgText: text,
-    };
-    props.dispatch(action);
+    props.dispatch(updateMessageTextActionCreater(text));
   };
 
   return (

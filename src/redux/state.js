@@ -43,22 +43,25 @@ let store = {
 					date: "today at 15.00 am"
 				}
 			],
+			users: [
+				{ id: 1, name: "Niko" },
+				{ id: 2, name: "Valeria" },
+				{ id: 3, name: "Viktor" },
+				{ id: 4, name: "Olivia" },
+				{ id: 5, name: "Antonio" },
+			],
 			newMsgText: ''
 		},
-		posts: [
-			{ id: 1, msg: 'Lorem ipsun trulala. Hello my firt duddy!' },
-			{ id: 2, msg: 'Hello World!' },
-			{ id: 3, msg: 'Lucky day! Good day!!' },
-			{ id: 4, msg: 'Lorem ipsun trulala. Hello my firt duddy!' }
-		],
-		users: [
-			{ id: 1, name: "Niko" },
-			{ id: 2, name: "Valeria" },
-			{ id: 3, name: "Viktor" },
-			{ id: 4, name: "Olivia" },
-			{ id: 5, name: "Antonio" },
-		],
-		newPostText: ''
+		homePage: {
+			posts: [
+				{ id: 1, msg: 'Lorem ipsun trulala. Hello my firt duddy!' },
+				{ id: 2, msg: 'Hello World!' },
+				{ id: 3, msg: 'Lucky day! Good day!!' },
+				{ id: 4, msg: 'Lorem ipsun trulala. Hello my firt duddy!' }
+			],
+			newPostText: ''
+		},
+		profilePage: {}
 	},
 	getState() {
 		return this._state;
@@ -74,7 +77,7 @@ let store = {
 	//ACTIONS
 
 	dispatch(action) {
-		this._state = homeReducer(this._state, action);
+		this._state.homePage = homeReducer(this._state.homePage, action);
 		this._state.messagePage = messageReducer(this._state.messagePage, action);
 		this._rerender(this._state);
 	}
