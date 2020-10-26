@@ -14,7 +14,18 @@ export const updatePostActionCreater = (text) => {
 }
   }
 
-const homeReducer = (state, action) => {
+let initialState = {
+  posts: [
+    { id: 1, msg: 'Lorem ipsun trulala. Hello my firt duddy!' },
+    { id: 2, msg: 'Hello World!' },
+    { id: 3, msg: 'Lucky day! Good day!!' },
+    { id: 4, msg: 'Lorem ipsun trulala. Hello my firt duddy!' }
+  ],
+  newPostText: ''
+}
+
+
+const homeReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: 
             let newPost = {
