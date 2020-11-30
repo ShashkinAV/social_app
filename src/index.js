@@ -22,4 +22,4 @@ let rerender = (state) => {
 store.subscribe(rerender);
 
 //Запуск функции рендера приложения
-store._rerender(store.getState());
+rerender(store.getState());

@@ -20,7 +20,8 @@ function App(props) {
 						/>}
 					/>
 					<Route path='/profile' render={() => <ProfilePage 
-							posts={props.state.homePage.posts} 
+							profilePage={props.state.profilePage} 
+							dispatch={props.dispatch}
 							
 							/>} />
 					<Route path='/messages' render={() => <Messages
