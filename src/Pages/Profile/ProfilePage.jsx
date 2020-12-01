@@ -5,7 +5,6 @@ import ProfilePic from "../../img/profile-1.jpg";
 import ProfileBunner from "../../img/profile-banner.jpg";
 
 const ProfilePage = (props) => {
-	debugger;
   let posts = props.profilePage.posts.map((el) => (
     <Post msg={el.msg} key={el.id} id={el.id} />
   ));

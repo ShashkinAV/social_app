@@ -12,8 +12,9 @@ function App(props) {
 			<Header />
 			<main>
 				<div className="main-wrapper">
-					<Route
-						path='/home'
+				<Route
+						path='/'
+						exact
 						render={() => <HomePage
 							homePage={props.state.homePage}
 							dispatch={props.dispatch}
