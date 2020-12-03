@@ -4,22 +4,19 @@ import './sass/style.sass';
 import App from './App';
 import store from './redux/redux-store';
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
 //Функция перерисовки компонентов React
-let rerender = (state) => {
 	ReactDOM.render(
 		<React.StrictMode>
 			<BrowserRouter>
-				<App 
+			<Provider store={store}>
+			<App 
 					state={store.getState()}
 					dispatch={store.dispatch.bind(store)}
 				/>
+			</Provider>	
 			</BrowserRouter>
 		</React.StrictMode>,
 		document.getElementById('root')
 	);
-};
-store.subscribe(rerender);
-
-//Запуск функции рендера приложения
-rerender(store.getState());

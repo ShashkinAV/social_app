@@ -28,16 +28,24 @@ let initialState = {
 const homeReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: 
-            let newPost = {
-                id: state.posts.length + 1,
-                msg: state.newPostText
-            };
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return state;
-        case UPDATE_NEW_POST_TEXT: 
-            state.newPostText = action.newText;
-            return state;
+            
+						let copyState = {...state};
+						copyState.posts = [...state.posts];
+						
+						let newPost = {
+							id: copyState.posts.length + 1,
+							msg: copyState.newPostText
+					};
+            copyState.posts.push(newPost);
+						copyState.newPostText = '';
+						console.log(copyState);
+						return copyState;
+						
+				case UPDATE_NEW_POST_TEXT: 
+				
+						let newState = {...state};
+            newState.newPostText = action.newText;
+            return newState;
         default: 
             return state;
     }

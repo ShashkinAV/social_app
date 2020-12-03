@@ -2,9 +2,10 @@ import React from "react";
 import DialogItem from "../../components/DialogItem/DialogItem";
 import UserBar from "../../components/UserBar/UserBar";
 import LeftBar from "../../components/LeftBar/LeftBar";
-import AddMessage from "../../components/AddMessage/AddMessage";
+import AddMessageContainer from "../../components/AddMessage/AddMessageContainer";
 
 const Messages = (props) => {
+
   let items = props.messagePage.msg.map((el) => {
     return (
       <DialogItem
@@ -24,7 +25,7 @@ const Messages = (props) => {
         <div className="col-lg-6 order-1 order-lg-2">
           <div className="dialog">
             {items}
-            <AddMessage
+            <AddMessageContainer
               newMsgText={props.messagePage.newMsgText}
               dispatch={props.dispatch}
             />

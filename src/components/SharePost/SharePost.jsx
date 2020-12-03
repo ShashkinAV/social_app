@@ -1,6 +1,5 @@
 import React from "react";
 import ProfileImg from "../../img/profile-midle-1.jpg";
-import { addPostActionCreater, updatePostActionCreater } from "../../redux/homeReducer";
 
 
 const SharePost = (props) => {
@@ -10,14 +9,13 @@ const SharePost = (props) => {
 
   //Отправка поста в state
   let addPost = () => {
-    props.dispatch(addPostActionCreater());
+    props.addPost();
   };
 
   //Отслеживание изменения в textarea
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    let action = updatePostActionCreater(text);
-    props.dispatch(action);
+    props.updatePostActionCreater(text);
   };
 
   return (

@@ -1,6 +1,4 @@
 import React from "react";
-import { addMessageActionCreater, updateMessageTextActionCreater } from "../../redux/messageReducer";
-
 
 const AddMessage = (props) => {
 
@@ -9,13 +7,13 @@ const AddMessage = (props) => {
 
   //Отправка в state
   let addMsg = () => {
-    props.dispatch(addMessageActionCreater());
-  };
+		props.addMsg();
+	};
 
   //Отслеживание изменения в textarea
   let onPostChange = () => {
     let text = newMsgElement.current.value;
-    props.dispatch(updateMessageTextActionCreater(text));
+    props.updateMessageTextActionCreater(text);
   };
 
   return (
