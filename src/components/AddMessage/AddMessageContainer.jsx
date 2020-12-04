@@ -2,27 +2,10 @@ import { connect } from "react-redux";
 import { addMessageActionCreater, updateMessageTextActionCreater } from "../../redux/messageReducer";
 import AddMessage from "./AddMessage";
 
-// const AddMessageContainer = (props) => {
-
-
-//   //Отправка в state
-//   let addMsg = () => {
-//     props.dispatch(addMessageActionCreater());
-//   };
-
-//   //Отслеживание изменения в textarea
-//   let onPostChange = (text) => {
-//     props.dispatch(updateMessageTextActionCreater(text));
-//   };
-
-//   return (
-//     <AddMessage addMsg={addMsg} updateMessageTextActionCreater={onPostChange} newMsgText={props.newMsgText}/>
-//   );
-// };
 
 const mapStateToProps = (state)=> {
 	return {
-		newMsgText: state.newMsgText
+		newMsgText: state.messagePage.newMsgText
 	}
 
 }

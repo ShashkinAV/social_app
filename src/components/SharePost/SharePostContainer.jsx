@@ -1,13 +1,11 @@
 import SharePost from "./SharePost";
-import {
-  addPostActionCreater,
-  updatePostActionCreater,
-} from "../../redux/homeReducer";
+import { addPostActionCreater, updatePostActionCreater } from "../../redux/homeReducer";
 import { connect } from "react-redux";
+
 
 const mapStateToProps = (state) => {
   return {
-    newPostText: state.homePage.newPostText
+    newPostText: state.homePage.newPostText,
   };
 };
 const mapDispatchToProps = (dispatch) => {

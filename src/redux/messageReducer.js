@@ -64,19 +64,26 @@ let initialState = {
 
 const messageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE: 
-            let newMsg = {
-                id: state.msg.length + 1,
-                from: "from-them",
-                msg: state.newMsgText,
-                date: "today at 15.00 am"
-            }
-            state.msg.push(newMsg);
-            state.newMsgText = '';
-            return state;
-        case UPDATE_NEW_MESSAGE_TEXT: 
-            state.newMsgText = action.newMsgText;
-            return state;
+				case ADD_MESSAGE: 
+
+				return {
+					...state,
+					msg: [
+						...state.msg, 
+						{
+						id: state.msg.length + 1,
+						from: "from-them",
+						msg: state.newMsgText,
+						date: "today at 15.00 am"
+				}
+			],
+			newMsgText: '',
+				}
+						
+				case UPDATE_NEW_MESSAGE_TEXT: 
+
+				return {...state, newMsgText: action.newMsgText };
+				
         default:
             return state;
     }

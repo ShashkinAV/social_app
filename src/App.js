@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Messages from "./Pages/Messages/Messages";
-import HomePage from "./Pages/HomePage/HomePage";
-import ProfilePage from "./Pages/Profile/ProfilePage";
+import MessagesContainer from "./Pages/Messages/MessagesContainer";
+import HomePageContainer from "./Pages/HomePage/HomePageContainer";
+import ProfilePageContainer from "./Pages/Profile/ProfilePageContainer";
 import { Route } from "react-router-dom";
 
 function App(props) {
@@ -12,23 +12,9 @@ function App(props) {
 			<Header />
 			<main>
 				<div className="main-wrapper">
-				<Route
-						path='/'
-						exact
-						render={() => <HomePage
-							homePage={props.state.homePage}
-							dispatch={props.dispatch}
-						/>}
-					/>
-					<Route path='/profile' render={() => <ProfilePage 
-							profilePage={props.state.profilePage} 
-							dispatch={props.dispatch}
-							
-							/>} />
-					<Route path='/messages' render={() => <Messages
-						messagePage={props.state.messagePage}
-						dispatch={props.dispatch}
-					/>} />
+					<Route path='/' exact render={() => <HomePageContainer />}/>
+					<Route path='/profile' render={() => <ProfilePageContainer />} />
+					<Route path='/messages' render={() => <MessagesContainer />} />
 				</div>
 			</main>
 			<Footer />

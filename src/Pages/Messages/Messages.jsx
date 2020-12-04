@@ -5,8 +5,7 @@ import LeftBar from "../../components/LeftBar/LeftBar";
 import AddMessageContainer from "../../components/AddMessage/AddMessageContainer";
 
 const Messages = (props) => {
-
-  let items = props.messagePage.msg.map((el) => {
+  let items = props.msg.map((el) => {
     return (
       <DialogItem
         from={"dialog__text " + el.from}
@@ -25,14 +24,11 @@ const Messages = (props) => {
         <div className="col-lg-6 order-1 order-lg-2">
           <div className="dialog">
             {items}
-            <AddMessageContainer
-              newMsgText={props.messagePage.newMsgText}
-              dispatch={props.dispatch}
-            />
+            <AddMessageContainer />
           </div>
         </div>
         <div className="col-lg-3 order-3">
-          <UserBar users={props.messagePage.users} />
+          <UserBar users={props.users} />
         </div>
       </div>
     </div>

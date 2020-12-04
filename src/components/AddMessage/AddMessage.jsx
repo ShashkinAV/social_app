@@ -1,7 +1,6 @@
 import React from "react";
 
 const AddMessage = (props) => {
-
   //Ссылка на textarea
   let newMsgElement = React.createRef();
 
@@ -22,7 +21,8 @@ const AddMessage = (props) => {
         ref={newMsgElement}
         onChange={onPostChange}
         className="share-content__field"
-        value={props.newMsgText}
+				value={props.newMsgText}
+				placeholder="Enter your message"
       />
       <button onClick={addMsg} className="dialog__btn btn-share">
         Send
