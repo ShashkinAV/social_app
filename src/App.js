@@ -5,7 +5,7 @@ import MessagesContainer from "./Pages/Messages/MessagesContainer";
 import HomePageContainer from "./Pages/HomePage/HomePageContainer";
 import ProfilePageContainer from "./Pages/Profile/ProfilePageContainer";
 import { Route } from "react-router-dom";
-import UsersPage from "./Pages/UsersPage/UsersPage";
+import UsersPageContainer from "./Pages/UsersPage/UsersPageContainer";
 
 function App(props) {
 	return (
@@ -16,7 +16,7 @@ function App(props) {
 					<Route path='/' exact render={() => <HomePageContainer />}/>
 					<Route path='/profile' render={() => <ProfilePageContainer />} />
 					<Route path='/messages' render={() => <MessagesContainer />} />
-					<Route path='/users' render={() => <UsersPage />} />
+					<Route path='/users' render={() => <UsersPageContainer />} />
 				</div>
 			</main>
 			<Footer />
