@@ -26,6 +26,12 @@ const Header = (props) => {
                     Messages
                   </NavLink>
                 </li>
+								<li className="menu__item">
+                  <NavLink className="menu__link" to="/users">
+                    Users
+                  </NavLink>
+                </li>
+							
               </ul>
             </nav>
           </div>
