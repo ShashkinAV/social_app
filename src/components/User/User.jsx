@@ -10,11 +10,13 @@ const User = (props) => {
 						<div className="col-lg-3">
 							<div className="user__avatar">
 								<img src={props.avatar} alt="User Avatar"className="user__img"/>
+
 								{
 									props.followed 
-									? <button onClick={()=>{props.unfollow(props.id)}}>Unfollow</button> 
-									: <button  onClick={()=>{props.follow(props.id)}}>Follow</button>
+									? <button className="user__btn red" onClick={()=>{props.unfollow(props.id)}}>Unfollow</button> 
+									: <button  className="user__btn" onClick={()=>{props.follow(props.id)}}>Follow</button>
 								}
+
 							</div>
 						</div>
 						<div className="col-lg-9">
@@ -25,7 +27,7 @@ const User = (props) => {
 								<div className="user__location">
 									<div className="user__contry">
 										{props.location.country}
-									</div>
+									</div>,
 									<div className="user__city">
 									{props.location.city}
 									</div>

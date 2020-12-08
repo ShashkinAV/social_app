@@ -13,18 +13,12 @@ const UsersPage = (props)=> {
 				followed: false, fullName: 'Ivan', status: 'Hello World!', location: {country: 'Moldavia', city: 'Beshkek'} },
 			{ id: 3, 
 				avatarUrl: 'https://thumbs.dfs.ivi.ru/storage31/contents/0/a/1228c8bfae00ce8e1218cd360f9736.jpg',
-				followed: true, fullName: 'Masha', status: 'Lucky day! Good day!!', location: {country: 'Turkey', city: 'Stambul'} },
+				followed: true, fullName: 'John', status: 'Lucky day! Good day!!', location: {country: 'Turkey', city: 'Stambul'} },
 			{ id: 4, 
 				avatarUrl: 'https://thumbs.dfs.ivi.ru/storage31/contents/0/a/1228c8bfae00ce8e1218cd360f9736.jpg',
 				followed: false, fullName: 'Andrew', status: 'Lorem ipsun trulala. Hello my firt duddy!', location: {country: 'Russia', city: 'Sochi'} }
 			]);
 	}
-
-
-
-	
-
-
 
 
 	let users = props.users.map((user)=> {
