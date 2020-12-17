@@ -1,12 +1,15 @@
 import React from 'react';
 import User from '../../components/User/User';
 import * as axios from 'axios';
+import Preloader from '../../components/Preloader/Preloader';
 
 class UsersPage extends React.Component {
 
 	componentDidMount() {
+		this.props.setIsLoading(true);
 		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
 			.then(response => {
+				this.props.setIsLoading(false);
 				this.props.setUsers(response.data.items);
 				this.props.setTotalUserCount(response.data.totalCount);
 			});
@@ -14,9 +17,10 @@ class UsersPage extends React.Component {
 
 	onChangePage = (currentPage) => {
 		this.props.setCurrentPage(currentPage);
-
+		this.props.setIsLoading(true);
 		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`)
 			.then(response => {
+				this.props.setIsLoading(false);
 				this.props.setUsers(response.data.items);
 				this.props.setTotalUserCount(response.data.totalCount);
 			});
@@ -31,8 +35,10 @@ class UsersPage extends React.Component {
 			pagesArr.push(i);
 		}
 
-		return (
-			<div className="container pt-80">
+		return (<>
+			{this.props.isLoading 
+				? <Preloader />
+				: <div className="container pt-80">
 				<div className="row">
 					<div className="col-lg-12">
 						<div className="pagination">
@@ -52,7 +58,8 @@ class UsersPage extends React.Component {
 
 					{
 						this.props.users.map((u) => {
-							return <User
+							return <>
+							<User
 								id={u.id}
 								followed={u.followed}
 								follow={this.props.follow}
@@ -60,11 +67,14 @@ class UsersPage extends React.Component {
 								name={u.name}
 								photo={u.photos.small}
 								status={u.status} />
+								</>
 						})
 					}
 
 				</div>
 			</div>
+}
+			</>
 		)
 	}
 }

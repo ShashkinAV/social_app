@@ -3,24 +3,27 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SETUSERS";
 const SET_CURRENT_PAGE = "SETCURRENTPAGE";
 const SET_TOTAL_USER_COUNT = "SETTOTALUSERCOUNT";
+const TOGGLE_IS_LOADING = "TOGGLEISLOADING";
 
-export const followAc = (userId) => ({ type: FOLLOW, userId });
-export const unFollowAc = (userId) => ({ type: UNFOLLOW, userId });
-export const setUsersAc = (users) => ({ type: SET_USERS, users });
-export const setCurrentPageAc = (currentPage) => ({
+export const follow = (userId) => ({ type: FOLLOW, userId });
+export const unFollow = (userId) => ({ type: UNFOLLOW, userId });
+export const setUsers = (users) => ({ type: SET_USERS, users });
+export const setIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading });
+export const setCurrentPage = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage,
 });
-export const setTotalUserCountAc = (totalCount) => ({
+export const setTotalUserCount = (totalCount) => ({
   type: SET_TOTAL_USER_COUNT,
   totalCount,
 });
 
 let initialState = {
   users: [],
-  currentPage: 8,
+  currentPage: 1,
   totalUsersCount: 0,
-  pageSize: 5,
+	pageSize: 6,
+	isLoading: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -60,7 +63,12 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         totalUsersCount: action.totalCount,
-      };
+			};
+			case TOGGLE_IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading,
+			};
     default:
       return state;
   }
