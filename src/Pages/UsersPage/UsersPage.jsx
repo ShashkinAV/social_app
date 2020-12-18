@@ -46,8 +46,8 @@ class UsersPage extends React.Component {
 								{
 									pagesArr.map(p => {
 										return (
-											<li className="pagination__item">
-												<a href="#1" onClick={(e)=> {e.preventDefault(); this.onChangePage(p)}} className={this.props.currentPage === p ? "pagination__link pagination__current-link" : "pagination__link"}>{p}</a>
+											<li className="pagination__item" >
+												<a href="#1" key={p} onClick={(e)=> {e.preventDefault(); this.onChangePage(p)}} className={this.props.currentPage === p ? "pagination__link pagination__current-link" : "pagination__link"}>{p}</a>
 											</li>
 										)
 									})
@@ -60,6 +60,7 @@ class UsersPage extends React.Component {
 						this.props.users.map((u) => {
 							return <>
 							<User
+								key={u.id}
 								id={u.id}
 								followed={u.followed}
 								follow={this.props.follow}

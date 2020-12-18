@@ -1,20 +1,20 @@
 import React from "react";
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MessagesContainer from "./Pages/Messages/MessagesContainer";
 import HomePageContainer from "./Pages/HomePage/HomePageContainer";
-import ProfilePageContainer from "./Pages/Profile/ProfilePageContainer";
+import ProfileContainer from "./Pages/Profile/ProfileContainer";
 import { Route } from "react-router-dom";
 import UsersPageContainer from "./Pages/UsersPage/UsersPageContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 function App(props) {
 	return (
 		<>
-			<Header />
+			<HeaderContainer />
 			<main>
 				<div className="main-wrapper">
 					<Route path='/' exact render={() => <HomePageContainer />}/>
-					<Route path='/profile' render={() => <ProfilePageContainer />} />
+					<Route path='/profile/:userId?' render={() => <ProfileContainer />} />
 					<Route path='/messages' render={() => <MessagesContainer />} />
 					<Route path='/users' render={() => <UsersPageContainer />} />
 				</div>

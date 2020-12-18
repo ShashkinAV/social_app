@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../../img/logo.png";
 import Avatar from "../../img/profile.jpg";
 import { NavLink } from "react-router-dom";
+import AuthBtn from "../AuthBtn/AuthBtn";
 
 const Header = (props) => {
   return (
@@ -43,20 +44,25 @@ const Header = (props) => {
             </div>
           </div>
           <div className="col-md-5 d-flex justify-content-end align-items-center">
-            <form className="search">
-              <input
-                type="search"
-                className="search__input"
-                placeholder="Search"
-              />
-              <button className="search__btn">
-                <i className="icon-search"></i>
-              </button>
-            </form>
+            {/*<form className="search">*/}
+            {/*  <input*/}
+            {/*    type="search"*/}
+            {/*    className="search__input"*/}
+            {/*    placeholder="Search"*/}
+            {/*  />*/}
+            {/*  <button className="search__btn">*/}
+            {/*    <i className="icon-search"></i>*/}
+            {/*  </button>*/}
+            {/*</form>*/}
             <div className="login">
-              <NavLink to="/profile">
-                <img src={Avatar} alt="Avatar" className="login__avatar" />
-              </NavLink>
+
+              {
+                props.isLogin
+                    ? <NavLink className="login__link" to={"/profile/" + props.userId}>
+                        <img src={Avatar} alt="Avatar" className="login__avatar" />
+                      </NavLink>
+                    : <AuthBtn />
+              }
             </div>
           </div>
         </div>
