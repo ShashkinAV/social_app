@@ -1,28 +1,27 @@
 import React from 'react';
 import User from '../../components/User/User';
-import * as axios from 'axios';
 import Preloader from '../../components/Preloader/Preloader';
+import { getUsers } from '../../api/api';
 
 class UsersPage extends React.Component {
 
 	componentDidMount() {
 		this.props.setIsLoading(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-			.then(response => {
-				this.props.setIsLoading(false);
-				this.props.setUsers(response.data.items);
-				this.props.setTotalUserCount(response.data.totalCount);
+		getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+																			this.props.setIsLoading(false);
+																			this.props.setUsers(data.items);
+																			this.props.setTotalUserCount(data.totalCount);
 			});
 	}
 
 	onChangePage = (currentPage) => {
 		this.props.setCurrentPage(currentPage);
 		this.props.setIsLoading(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`)
-			.then(response => {
+		getUsers(currentPage, this.props.pageSize)
+			.then(data => {
 				this.props.setIsLoading(false);
-				this.props.setUsers(response.data.items);
-				this.props.setTotalUserCount(response.data.totalCount);
+				this.props.setUsers(data.items);
+				this.props.setTotalUserCount(data.totalCount);
 			});
 	}
 
