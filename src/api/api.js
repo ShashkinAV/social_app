@@ -7,8 +7,17 @@ const instanse = axios.create({
 	},
 	withCredentials: true
 })
-
-export const getUsers = (currentPage=1, pageSize=6)=> {
-	return instanse.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)
-	
+export const usersApi = {
+	getUsers (currentPage=1, pageSize=6){
+		return instanse.get(`users?page=${currentPage}&count=${pageSize}`)
+		.then(response => response.data)},
+	getProfile(userId){
+		return instanse.get(`profile/` + userId).then(response=> response.data);
+	},
+	setFollow(userId){
+		return instanse.post(`follow/${userId}`)
+	},
+	setUnfollow(userId){
+		return instanse.delete(`follow/${userId}`)
 	}
+}

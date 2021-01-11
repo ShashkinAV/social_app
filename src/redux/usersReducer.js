@@ -1,3 +1,4 @@
+import { usersApi } from "../api/api";
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SETUSERS";
@@ -73,4 +74,26 @@ const usersReducer = (state = initialState, action) => {
       return state;
   }
 };
+export const getUserThunkCreater = (currentPage, pageSize)=> {
+return (dispatch) => {
+	dispatch(setIsLoading(true));
+	usersApi.getUsers(currentPage, pageSize).then(data => {
+		dispatch(setIsLoading(false));
+		dispatch(setUsers(data.items));
+		dispatch(setTotalUserCount(data.totalCount));
+	});
+}
+}
+// export const setFollowThunkCreater = (userId)=> {
+// 	return (dispatch) => {
+// 		dispatch(setIsLoading(true));
+// 		usersApi.getUsers(currentPage, pageSize).then(data => {
+// 			dispatch(setIsLoading(false));
+// 			dispatch(setUsers(data.items));
+// 			dispatch(setTotalUserCount(data.totalCount));
+// 		});
+// 	}
+// 	}
+
+
 export default usersReducer;
