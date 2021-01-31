@@ -1,14 +1,8 @@
 import { connect } from "react-redux";
-import {
-  follow,
-  setUsers,
-  unFollow,
-  setCurrentPage,
-  setTotalUserCount,
-  setIsLoading,
-} from "../../redux/usersReducer";
 import UsersPage from "./UsersPage";
-import { getUserThunkCreater } from "../../redux/usersReducer";
+import { getUserThunkCreater, setFollowThunkCreater, setUnFollowThunkCreater  } from "../../redux/usersReducer";
+import {AuthRedirectHoc} from "../../Hoc/AuthRedirectHoc";
+import {compose} from "redux";
 
 const mapStateToProps = (state) => {
   return {
@@ -17,17 +11,16 @@ const mapStateToProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     isLoading: state.usersPage.isLoading,
+    isFollowingProgress: state.usersPage.isFollowingProgress
   };
 };
 
-const UsersPageContainer = connect(mapStateToProps, {
-  follow,
-  unFollow,
-  setUsers,
-  setCurrentPage,
-  setTotalUserCount,
-	setIsLoading,
-	getUserThunkCreater
-})(UsersPage);
+export default compose(
+    connect(mapStateToProps, {
+      getUserThunkCreater,
+      setFollowThunkCreater,
+      setUnFollowThunkCreater,
 
-export default UsersPageContainer;
+    }),
+    AuthRedirectHoc,
+)(UsersPage)

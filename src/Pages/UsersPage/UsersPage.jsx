@@ -52,11 +52,13 @@ class UsersPage extends React.Component {
 										key={u.id}
 										id={u.id}
 										followed={u.followed}
-										follow={this.props.follow}
-										unFollow={this.props.unFollow}
+										follow={this.props.setFollowThunkCreater}
+										unFollow={this.props.setUnFollowThunkCreater}
 										name={u.name}
 										photo={u.photos.small}
-										status={u.status} />
+										status={u.status}
+										isFollowing={this.props.isFollowingProgress}
+									/>
 								</>
 							})
 						}

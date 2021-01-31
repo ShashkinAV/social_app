@@ -1,9 +1,10 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../redux/profileReducer";
 import { withRouter } from "react-router-dom";
-import { usersApi } from "../../api/api";
+import {getUserProfileThunk} from "../../redux/profileReducer";
+import {AuthRedirectHoc} from "../../Hoc/AuthRedirectHoc";
+import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -12,9 +13,7 @@ class ProfileContainer extends React.Component {
             userId = 2;
         }
 
-				usersApi.getProfile(userId)
-                .then(data => {this.props.setUserProfile(data);
-            });
+		this.props.getUserProfileThunk(userId);
     }
 
     render() {
@@ -23,12 +22,14 @@ class ProfileContainer extends React.Component {
         )
     }
 }
-
 let mapStateToProps =(state)=> ({
     posts: state.profilePage.posts,
     newPostText: state.profilePage.newPostText,
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
+    isAuth: state.auth.isLogin
 })
-let WhithRouterContainer = withRouter(ProfileContainer);
-
-export default  connect(mapStateToProps, {setUserProfile})(WhithRouterContainer);
+export default compose(
+    connect(mapStateToProps, {getUserProfileThunk}),
+    withRouter,
+    //AuthRedirectHoc,
+)(ProfileContainer)

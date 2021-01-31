@@ -4,10 +4,10 @@ import SharePostContainer from "../../components/SharePost/SharePostContainer";
 import ProfileBunner from "../../img/profile-banner.jpg";
 import Preloader from "../../components/Preloader/Preloader";
 import DefaultPic from "../../img/user.jpg";
+import ProfileMeta from "../../components/ProfileMeta/ProfileMeta";
 
 
 const Profile = (props)=> {
-
 	if(!props.profile) {
 		return <Preloader />
 	}
@@ -73,12 +73,17 @@ const Profile = (props)=> {
 				</div>
 				<div className="container">
 					<div className="row">
-						<div className="col-lg-3 order-2 order-lg-1"></div>
+						<div className="col-lg-3 order-2 order-lg-1">
+							<aside className="profile-sidebar">
+								<ProfileMeta aboutMe={props.profile.aboutMe} name={props.profile.fullName}/>
+							</aside>
+						</div>
 						<div className="col-lg-6 order-1 order-lg-2">
 							<SharePostContainer />
 							{posts}
 						</div>
 						<div className="col-lg-3 order-3">RightBar</div>
+
 					</div>
 				</div>
 			</>

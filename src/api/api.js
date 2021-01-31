@@ -15,9 +15,8 @@ export const usersApi = {
 		return instanse.get(`profile/` + userId).then(response=> response.data);
 	},
 	setFollow(userId){
-		return instanse.post(`follow/${userId}`)
-	},
+		return instanse.post(`follow/${userId}`).then(response => response.data)},
 	setUnfollow(userId){
-		return instanse.delete(`follow/${userId}`)
+		return instanse.delete(`follow/${userId}`).then(response => response.data)},
+	me(){return instanse.get(`auth/me`)},
 	}
-}

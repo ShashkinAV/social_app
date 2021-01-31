@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import * as axios from 'axios';
 
 const User = (props) => {
 	return (
@@ -16,27 +15,11 @@ const User = (props) => {
 
 								{
 									props.followed
-										? <button className="user__btn red" onClick={() => {
-											axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {
-												withCredentials: true,
-												headers: { "API-KEY": "48264660-10df-4544-bf2f-23492eab1fa7" }
-											})
-												.then(response => {
-													if (response.data.resultCode === 0) {
-														props.unFollow(props.id)
-													}
-												});
+										? <button className="user__btn red" disabled={props.isFollowing.some(id=> id ===props.id)} onClick={() => {
+											props.unFollow(props.id);
 										}}>Unfollow</button>
-										: <button className="user__btn" onClick={() => {
-											axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {}, {
-												withCredentials: true,
-												headers: { "API-KEY": "48264660-10df-4544-bf2f-23492eab1fa7" }
-											})
-												.then(response => {
-													if (response.data.resultCode === 0) {
-														props.follow(props.id)
-													}
-												});
+										: <button className="user__btn" disabled={props.isFollowing.some(id=> id ===props.id)} onClick={() => {
+											props.follow(props.id);
 										}}>Follow</button>
 								}
 
